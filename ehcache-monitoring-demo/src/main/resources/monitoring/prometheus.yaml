@@ -1,0 +1,15 @@
+scrape_configs:
+  - job_name: 'Spring Boot Application input'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 2s
+    static_configs:
+      - targets: ['192.168.0.102:4455']
+        labels:
+          application: 'Caching Monitoring Demo'
+
+
+
+# my global config
+global:
+  scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 min.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 min.

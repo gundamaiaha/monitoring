@@ -1,0 +1,49 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testDB
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
+
+
+server:
+  port: 4455
+  error:
+    include-message: always
+
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#    metrics:
+#      enabled: true
+#    prometheus:
+#      enabled: true
+#  endpoint:
+#    health:
+#      show-details: always
+#  metrics:
+#    export:
+#      prometheus:
+#        enabled: true
+#        cache:
+#          instrument: true
+
+management.endpoints:
+  web.exposure.include: "*"
+  metrics.enabled: true
+  prometheus.enabled: true
+  prometheus.step: 1s
+management.metrics:
+  export.prometheus.enabled: true
+  cache.instrument: true
